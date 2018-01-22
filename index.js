@@ -7,7 +7,7 @@ var PREFIX = "/";
 var randnum = 0
 var mention = "<@384735804452241418>";
 
-bot.login(process.env.TOKEN) // Token
+bot.login(process.env.TOKEN);
 
 bot.on('ready',function() {
     console.log("Je suis en ligne !");
