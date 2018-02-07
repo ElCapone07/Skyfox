@@ -47,6 +47,26 @@ bot.on('message', message => {
 });
 
 bot.on('message', message => {
+    if(message.content.startsWith(PREFIX + "avatar")) {
+        if(message.channel.type === "dm") return message.channel.send("Désolé mais les commandes sont désactivées en message privé.")
+        if (message.channel.type === 'dm') return;
+        if(message.mentions.members.size === 0) {
+             message.channel.sendMessage("Vous n'avez mentionnée aucun utilisateur !")
+             return 
+           }
+           var avatar = message.mentions.users.first().avatarURL
+           var icon = message.author.avatarURL;
+           var name = message.author.username;
+           var avatar_embed = new Discord.RichEmbed()
+               .setColor(15105570)
+               .setDescription(`:camera_with_flash: Avatar de ${message.mentions.users.first().username}`)
+               .setImage(`${avatar}`)
+               .setFooter("Par la team des quatre pommes", bot.user.displayAvatarURL);
+           message.channel.sendEmbed(avatar_embed)
+    }
+});
+
+bot.on('message', message => {
     
     if(message.author.bot) return;
     const args = message.content.split(/ +/g);
@@ -150,14 +170,6 @@ function random(min, max) {
     max = Math.floor(3);
     randnum = Math.floor(Math.random() * (max - min +1) + min);
 }
-
-bot.on('message', message => {
-    if(message.content[0] === PREFIX) {
-        if(message.content.startsWith("/avatar")) {
-            message.reply(message.author.avatarURL);
-        }
-    }
-});
 
 bot.on('message', message => {
     var msgc = message.content
