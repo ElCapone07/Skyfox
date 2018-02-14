@@ -15,6 +15,16 @@ bot.on('ready',function() {
 });
 
 bot.on('message', message => {
+    if (message.content.startsWith(PREFIX + "setgame")) {
+        if(!message.member.roles.has('314018720785760258')) return message.channel.send("Cette commande est réservée au créateur du bot!");
+            var game = message.content.split(" ").slice(1).join(" ");
+             message.delete(message.author)
+            bot.user.setPresence({game: {name : game, type :0}});
+             message.channel.send("Statut changer avec succée :ok_hand:")
+        }
+});
+
+bot.on('message', message => {
     if(message.content[0] === PREFIX) {
         if(message.content === "/bienvenue") {
             message.channel.send('bienvenue sur le serveur !');
