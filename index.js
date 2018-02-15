@@ -20,7 +20,7 @@ bot.on('message', message => {
             var game = message.content.split(" ").slice(1).join(" ");
              message.delete(message.author)
             bot.user.setPresence({game: {name : game, type :0}});
-             message.channel.send("Statut changer avec succée :ok_hand:")
+             message.channel.send("Jeu du bot changer avec succès :ok_hand:")
         }
 });
 
