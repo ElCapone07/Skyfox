@@ -35,7 +35,7 @@ bot.on('message', message => {
 bot.on('message', message => {
     if(message.content[0] === PREFIX) {
         if(message.content === "/king") {
-            message.reply('tu es le king de se serveur !');
+            message.reply('tu es le king de ce serveur !');
         }
     }
 });
@@ -43,7 +43,7 @@ bot.on('message', message => {
 bot.on('message', message => {
     if(message.content[0] === PREFIX) {
         if(message.content === "/queen") {
-            message.reply('tu es la queen de se serveur !');
+            message.reply('tu es la queen de ce serveur !');
         }
     }
 });
